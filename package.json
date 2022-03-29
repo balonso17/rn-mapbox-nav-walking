@@ -1,5 +1,5 @@
 {
-  "name": "balonso17/rn-mapbox-nav-walking",
+  "name": "@balonso17/rn-mapbox-nav-walking",
   "title": "React Native Mapbox Navigation",
   "version": "2.0.0",
   "description": "Smart Mapbox turn-by-turn routing based on real-time traffic for React Native.",
