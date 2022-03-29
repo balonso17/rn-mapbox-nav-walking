@@ -656,7 +656,7 @@ class MapboxNavigationView(private val context: ThemedReactContext, private val 
                     .applyDefaultNavigationOptions()
                     .applyLanguageAndVoiceUnitOptions(context)
                     .coordinatesList(listOf(origin, destination))
-                    .profile(DirectionsCriteria.PROFILE_DRIVING)
+                    .profile(DirectionsCriteria.PROFILE_WALKING)
                     .steps(true)
                     .build(),
                 object : RouterCallback {
