@@ -12,7 +12,7 @@ import com.mapbox.maps.ResourceOptionsManager
 import com.mapbox.maps.TileStoreUsageMode
 import javax.annotation.Nonnull
 
-class MapboxNavigationWalkingManager(var mCallerContext: ReactApplicationContext) : SimpleViewManager<MapboxNavigationView>() {
+class MapboxNavigationWalkingManager(var mCallerContext: ReactApplicationContext) : SimpleViewManager<MapboxNavigationWalkingView>() {
     private var accessToken: String? = null
 
     init {
@@ -32,14 +32,14 @@ class MapboxNavigationWalkingManager(var mCallerContext: ReactApplicationContext
     }
 
     override fun getName(): String {
-        return "MapboxNavigation"
+        return "MapboxNavigationWalking"
     }
 
-    public override fun createViewInstance(@Nonnull reactContext: ThemedReactContext): MapboxNavigationView {
-        return MapboxNavigationView(reactContext, this.accessToken)
+    public override fun createViewInstance(@Nonnull reactContext: ThemedReactContext): MapboxNavigationWalkingView {
+        return MapboxNavigationWalkingView(reactContext, this.accessToken)
     }
 
-    override fun onDropViewInstance(view: MapboxNavigationView) {
+    override fun onDropViewInstance(view: MapboxNavigationWalkingView) {
         view.onDropViewInstance()
         super.onDropViewInstance(view)
     }
@@ -55,7 +55,7 @@ class MapboxNavigationWalkingManager(var mCallerContext: ReactApplicationContext
     }
 
     @ReactProp(name = "origin")
-    fun setOrigin(view: MapboxNavigationView, sources: ReadableArray?) {
+    fun setOrigin(view: MapboxNavigationWalkingView, sources: ReadableArray?) {
         if (sources == null) {
             view.setOrigin(null)
             return
@@ -64,7 +64,7 @@ class MapboxNavigationWalkingManager(var mCallerContext: ReactApplicationContext
     }
 
     @ReactProp(name = "destination")
-    fun setDestination(view: MapboxNavigationView, sources: ReadableArray?) {
+    fun setDestination(view: MapboxNavigationWalkingView, sources: ReadableArray?) {
         if (sources == null) {
             view.setDestination(null)
             return
@@ -73,17 +73,17 @@ class MapboxNavigationWalkingManager(var mCallerContext: ReactApplicationContext
     }
 
     @ReactProp(name = "shouldSimulateRoute")
-    fun setShouldSimulateRoute(view: MapboxNavigationView, shouldSimulateRoute: Boolean) {
+    fun setShouldSimulateRoute(view: MapboxNavigationWalkingView, shouldSimulateRoute: Boolean) {
         view.setShouldSimulateRoute(shouldSimulateRoute)
     }
 
     @ReactProp(name = "showsEndOfRouteFeedback")
-    fun setShowsEndOfRouteFeedback(view: MapboxNavigationView, showsEndOfRouteFeedback: Boolean) {
+    fun setShowsEndOfRouteFeedback(view: MapboxNavigationWalkingView, showsEndOfRouteFeedback: Boolean) {
         view.setShowsEndOfRouteFeedback(showsEndOfRouteFeedback)
     }
 
     @ReactProp(name = "mute")
-    fun setMute(view: MapboxNavigationView, mute: Boolean) {
+    fun setMute(view: MapboxNavigationWalkingView, mute: Boolean) {
         view.setMute(mute)
     }
 }
